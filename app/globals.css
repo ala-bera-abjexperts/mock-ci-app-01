@@ -153,3 +153,33 @@ main.narrow {
   background: var(--card);
   color: var(--text);
 }
+
+.form textarea,
+.form select,
+select.select {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-weight: 400;
+}
+
+.form textarea:focus,
+.form select:focus,
+select.select:focus {
+  outline: 2px solid var(--running);
+  outline-offset: 1px;
+}
+
+.tasks-toolbar {
+  grid-template-columns: 2fr 1fr;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 520px) {
+  .tasks-toolbar {
+    grid-template-columns: 1fr;
+  }
+}
