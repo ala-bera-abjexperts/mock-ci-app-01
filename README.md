@@ -64,3 +64,21 @@ The list is in `lib/jobs.ts` if you want other names.
 | Access detail value `Bearer wrong` | Run shows **Failed** with status 401 |
 | Method PUT | Works the same |
 | `XISUITE_TM_KEY` empty | Job finishes, but no results are sent |
+
+## My tasks
+
+Logged-in users also get a small task list at http://localhost:4000/tasks (link "My tasks →" on the home page).
+
+- Add a task with a title (1–120 characters) and optional notes (up to 1000).
+- Move it through **To do**, **In progress** and **Done**, edit it, or delete it.
+- Search by title or notes and filter by status.
+- Each user sees only their own tasks. They are kept in `data/tasks.json`, next to `data/users.json`.
+
+| API | What |
+|---|---|
+| `GET /api/tasks?q=&status=` | your tasks, newest first (`status` is `todo`, `doing` or `done`) |
+| `POST /api/tasks` | create: `{ "title": "...", "notes": "..." }` |
+| `PATCH /api/tasks/:id` | change any of `title`, `notes`, `status` |
+| `DELETE /api/tasks/:id` | remove |
+
+Not logged in gives 401, bad input 400, and a task that is missing or someone else's 404.

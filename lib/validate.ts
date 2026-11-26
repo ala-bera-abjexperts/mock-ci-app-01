@@ -39,3 +39,13 @@ export function validatePassword(password: string, confirmPassword: string): str
 
   return null
 }
+
+export function validateTaskTitle(title: string): string | null {
+  const length = title.trim().length
+
+  return length >= 1 && length <= 120 ? null : 'Title must be 1 to 120 characters'
+}
+
+export function validateTaskNotes(notes: string): string | null {
+  return notes.trim().length <= 1000 ? null : 'Notes can be at most 1000 characters'
+}

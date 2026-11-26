@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import type { Job } from '@/lib/jobs'
@@ -38,7 +39,10 @@ export default function Home() {
 
   return (
     <main>
-      <h1>Mock CI tool</h1>
+      <div className='row'>
+        <h1>Mock CI tool</h1>
+        <Link href='/tasks'>My tasks →</Link>
+      </div>
       <p className='muted'>A pretend CI tool for testing Use another CI tool in Test Management.</p>
 
       <h2>Request text for the setting</h2>
